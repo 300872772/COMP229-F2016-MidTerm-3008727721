@@ -7,11 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace COMP229_F2016_MidTerm_3008727721
-{
-
-
-    public partial class TodoList
-    {
+namespace COMP229_F2016_MidTerm_3008727721 {
+    
+    
+    public partial class TodoList {
+        
+        /// <summary>
+        /// PageSizeDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PageSizeDropDownList;
+        
+        /// <summary>
+        /// TodoListGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView TodoListGridView;
     }
 }

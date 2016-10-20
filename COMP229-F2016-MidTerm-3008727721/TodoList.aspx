@@ -22,7 +22,7 @@
 
     <asp:GridView ID="TodoListGridView" runat="server" AutoGenerateColumns="false"
         CssClass="table table-bordered table-striped table-hover" DataKeyNames="TodoID"
-        
+         OnRowDeleting="TodoListGridView_RowDeleting"
         PagerStyle-CssClass="pagination-ys">
         <Columns>
             <asp:BoundField DataField="TodoID" HeaderText="Todo ID" Visible="true" SortExpression="TodoID" />
@@ -39,6 +39,15 @@
                         Checked='<%#Convert.ToBoolean(Eval("Completed")) %>' />
                 </ItemTemplate>
             </asp:TemplateField>
+
+                                    <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit"
+                            NavigateUrl="~/TodoDetails.aspx.cs" ControlStyle-CssClass="btn btn-primary btn-sm"
+                            runat="server" DataNavigateUrlFields="TodoID"
+                            DataNavigateUrlFormatString="TodoDetails.aspx?TodoID={0}" />
+
+
+            <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete"
+                            ShowDeleteButton="true" ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm" />
 
         </Columns>
     </asp:GridView>

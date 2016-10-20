@@ -26,8 +26,27 @@ using System.Globalization;
 
 namespace COMP229_F2016_MidTerm_3008727721
 {
+    /**  
+* <summary>  
+* This is the TodoDetails class for TodoDetails page.  
+* </summary>  
+*   
+* @class TodoDetails  
+*/
     public partial class TodoDetails : System.Web.UI.Page
     {
+
+        //PROTECTED METHODES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        /**
+        * <summary>
+        * This is the protected method for for loading TodoListDetail page code
+        * </summary>
+        * 
+        * @method Page_Load
+        * @returns {void} 
+        * @param {object} sender
+        * @param {EventArgs} e
+        */
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -43,15 +62,50 @@ namespace COMP229_F2016_MidTerm_3008727721
         {
         }
 
+        /**
+        * <summary>
+        * This is the protected method SaveButton_Click as an event
+        * </summary>
+        * 
+        * @method SaveButton_Click
+        * @returns {void} 
+        * @param {object} sender
+        * @param {EventArgs} e
+        */
         protected void SaveButton_Click(object sender, EventArgs e)
         {
 
+
+            // Use EF to conect to the server
+            using (TodoContext1 db = new TodoContext1())
+            {
+                // use the todo model to create a new todo object and 
+                // save a new record
+
+                Todo newtodo = new Todo();
+
+               
+
+                newtodo.TodoDescription = todoname.ToString();
+                newtodo.TodoNotes = todoname.ToString();
+                newtodo.Completed = false;
+               
+                    db.Todos.Add(newtodo);
+             
+
+                // save our changes - also updates and inserts
+                db.SaveChanges();
+
+                // Redirect back to the updated todolist page
+                Response.Redirect("~/TodoList.aspx");
+
+
+            }
+
+
+
+
         }
-
-
-
-
-
 
     }
 }
